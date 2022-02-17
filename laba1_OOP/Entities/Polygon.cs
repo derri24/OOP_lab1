@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    public class Polygon:IFigure
+    public class Polygon:Figure
     {
         private int x1, x2, x3, y1, y2, y3,x4,y4,x5,y5,x6,y6;
         public Polygon(int x1, int y1,int x2, int y2, int x3, int y3,int x4,int y4,int x5,int y5,int x6,int y6)
@@ -21,7 +21,7 @@ namespace laba1_OOP
             this.y6 = y6;
         }
 
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.Coral, 5);

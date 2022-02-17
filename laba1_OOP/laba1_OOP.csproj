@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Entities\Circle.cs" />
     <Compile Include="Entities\Ellips.cs" />
-    <Compile Include="Entities\IFigure.cs" />
+    <Compile Include="Entities\Figure.cs" />
     <Compile Include="Entities\Line.cs" />
     <Compile Include="Entities\ListOfFigures.cs" />
     <Compile Include="Entities\Polygon.cs" />

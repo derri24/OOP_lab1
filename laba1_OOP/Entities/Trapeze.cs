@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    public class Trapeze:IFigure
+    public class Trapeze:Figure
     {
         private int x1, x2, x3, y1, y2, y3,x4,y4;
         public Trapeze(int x1, int y1,int x2, int y2, int x3, int y3,int x4,int y4)
@@ -17,7 +17,7 @@ namespace laba1_OOP
             this.y4 = y4;
         }
         
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.DeepPink, 5);

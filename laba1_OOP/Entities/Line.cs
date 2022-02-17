@@ -3,7 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace laba1_OOP
 {
-    public class Line:IFigure
+    public class Line:Figure
     {
         private int x1, y1, x2, y2;
         public Line(int x1,int y1,int x2,int y2)
@@ -13,7 +13,7 @@ namespace laba1_OOP
             this.x2 = x2;
             this.y2 = y2;
         }
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.Red, 5);

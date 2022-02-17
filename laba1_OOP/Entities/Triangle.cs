@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    class Triangle : IFigure
+    class Triangle : Figure
     {
         private int x1, x2, x3, y1, y2, y3;
 
@@ -16,7 +16,7 @@ namespace laba1_OOP
             this.y3 = y3;
         }
 
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.DarkGreen, 5);

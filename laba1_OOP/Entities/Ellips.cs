@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    public class Ellips:IFigure
+    public class Ellips:Figure
     {
         private int x, y,width,heigth;
         
@@ -14,7 +14,7 @@ namespace laba1_OOP
             this.heigth = heigth;
         }
         
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.Turquoise, 5);

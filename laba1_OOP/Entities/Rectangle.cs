@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    public class Rectangle:IFigure
+    public class Rectangle:Figure
     {
         private int x, y,width,heigth;
         public Rectangle(int x, int y,int width,int heigth)
@@ -12,7 +12,7 @@ namespace laba1_OOP
             this.width = width;
             this.heigth = heigth;
         }
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.DarkBlue, 5);

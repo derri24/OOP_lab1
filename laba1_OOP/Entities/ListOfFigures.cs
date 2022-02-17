@@ -4,10 +4,10 @@ namespace laba1_OOP
 {
     public class ListOfFigures
     {
-        public List<IFigure> figures;
+        public List<Figure> figures;
         public ListOfFigures()
         {
-          figures = new List<IFigure>();
+          figures = new List<Figure>();
         }
        
     }

@@ -2,7 +2,7 @@
 
 namespace laba1_OOP
 {
-    public class Square:IFigure
+    public class Square:Figure
     {
         private int x, y,width;
         
@@ -13,7 +13,7 @@ namespace laba1_OOP
             this.width = width;
         }
         
-        public void Draw(Bitmap bmp)
+        public override void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.Violet, 5);
