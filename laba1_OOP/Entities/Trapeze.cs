@@ -21,10 +21,14 @@ namespace laba1_OOP
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(Color.DeepPink, 5);
-            graphics.DrawLine(pen, x1,y1,x2,y2);
-            graphics.DrawLine(pen, x2,y2,x3,y3);
-            graphics.DrawLine(pen, x3,y3,x4,y4);
-            graphics.DrawLine(pen, x4,y4,x1,y1);
+
+            Point point_1 = new Point(x1, y1);
+            Point point_2 = new Point(x2, y2);
+            Point point_3 = new Point(x3, y3);
+            Point point_4 = new Point(x4, y4);
+            
+            Point[] points = new Point[4] {point_1, point_2, point_3, point_4};
+            graphics.DrawPolygon(pen, points);
         }
     }
 }
