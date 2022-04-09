@@ -58,6 +58,24 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BaseFigure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\plugins for adapter\BaseFigure.dll</HintPath>
+    </Reference>
+    <Reference Include="FilledCircle">
+      <HintPath>..\plugins for adapter\FilledCircle.dll</HintPath>
+    </Reference>
+    <Reference Include="FilledHexagonLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\plugins for adapter\FilledHexagonLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FilledRectangle">
+      <HintPath>..\plugins for adapter\FilledRectangle.dll</HintPath>
+    </Reference>
+    <Reference Include="FilledRhombus">
+      <HintPath>..\plugins for adapter\FilledRhombus.dll</HintPath>
+    </Reference>
+    <Reference Include="FilledTriangle">
+      <HintPath>..\plugins for adapter\FilledTriangle.dll</HintPath>
+    </Reference>
     <Reference Include="LibraryFigure">
       <HintPath>..\..\..\..\БГУИР\2 курс\Учусь писать на С#\LibraryFigure\LibraryFigure\bin\Debug\LibraryFigure.dll</HintPath>
     </Reference>
@@ -112,6 +130,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\AdapterClasses\AdaptedFilledCircle.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdapterFilledHexagon.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdapterFilledRectangle.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdapterFilledRhombus.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdapterFilledTriangle.cs" />
     <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Entities\Ellips.cs" />
     <Compile Include="Entities\Line.cs" />
