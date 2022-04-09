@@ -53,7 +53,7 @@ namespace laba1_OOP
         {
             listOfFigures.Clear();
             сlearBitmap();
-            encryptingPlugin.Serialization(FilterListOfFigures(), KeyValue);
+            Singleton.Serializer.Serialize(FilterListOfFigures());
         }
 
         private void сlearBitmap()
@@ -140,7 +140,7 @@ namespace laba1_OOP
             {
                 listOfFigures.Add(tempFigure);
                 updateListBox();
-                encryptingPlugin.Serialization(FilterListOfFigures(), KeyValue);
+                Singleton.Serializer.Serialize(FilterListOfFigures());
             }
         }
 
@@ -278,7 +278,7 @@ namespace laba1_OOP
         }
 
         
-        private EncryptingPlugin encryptingPlugin;
+      
 
         private void updateBitmap()
         {
@@ -290,8 +290,8 @@ namespace laba1_OOP
                 {
                     listOfFigures[i].Draw(btm);
                 }
-
-            encryptingPlugin.Serialization(FilterListOfFigures(), KeyValue);
+            
+            Singleton.Serializer.Serialize(FilterListOfFigures());
         }
 
         private void deleteFigure()
@@ -428,36 +428,13 @@ namespace laba1_OOP
         }
         //
         
-        private void ReadParameters()
-        {
-            string fileName = "parameters.dat";
-            FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate);
-            StreamReader streamReader = new StreamReader(fileStream);
-            string temp = streamReader.ReadLine();
-            if (!String.IsNullOrEmpty(temp))
-            {
-                SelectedEncrypt = Convert.ToInt32(temp);
-                if (SelectedEncrypt == 2)
-                    KeyValue = Convert.ToInt32(streamReader.ReadLine());
-            }
-
-            streamReader.Close();
-            fileStream.Close();
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ReadParameters();
-            if (SelectedEncrypt == 1)
-                encryptingPlugin = new NonEncrypting();
-            else if (SelectedEncrypt == 2)
-                encryptingPlugin = new Encrypting();
-
             tempColor = Color.Red;
         }
-
-        private int KeyValue = 1;
-        private int SelectedEncrypt = 1;
+        
 
         public void OpenButtons()
         {
@@ -467,7 +444,6 @@ namespace laba1_OOP
             RectangleBtn.Enabled = true;
             SquareBtn.Enabled = true;
             EllipsBtn.Enabled = true;
-            SettingsBtn.Enabled = true;
             LoadPluginsBtn.Enabled = true;
             ClearBtn.Enabled = true;
             DeleteBtn.Enabled = true;
@@ -478,7 +454,7 @@ namespace laba1_OOP
         {
             try
             {
-                listOfFigures = encryptingPlugin.Deserialization(KeyValue);
+                listOfFigures = Singleton.Serializer.Deserialize();
                 updateBitmap();
                 updateListBox();
             }
@@ -490,17 +466,6 @@ namespace laba1_OOP
             OpenButtons();
         }
 
-        private void SettingsBtn_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm1 = new SettingsForm();
-            settingsForm1.Key = KeyValue;
-            if (settingsForm1.ShowDialog() == DialogResult.OK)
-            {
-                MessageBox.Show("Изменения успешно сохранены!");
-                KeyValue = settingsForm1.Key;
-                encryptingPlugin = settingsForm1.encryptingPlugin;
-                encryptingPlugin.Serialization(listOfFigures, KeyValue);
-            }
-        }
+       
     }
 }

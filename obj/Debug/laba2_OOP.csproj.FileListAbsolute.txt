@@ -23,7 +23,6 @@ C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\LibraryFigure.dll
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\LibraryFigure.pdb
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\obj\Debug\laba2_OOP.csproj.AssemblyReference.cache
-C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\obj\Debug\laba1_OOP.SettingsForm.resources
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\System.Buffers.dll
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\System.Memory.dll

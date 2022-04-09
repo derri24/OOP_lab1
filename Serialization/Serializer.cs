@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 
 namespace laba1_OOP.Plugins
 {
-    public class NonEncrypting:EncryptingPlugin
+    public class Serializer
     {
-        public override void Serialization( List<Figure> filterlistOfFigures,int key)
+        public void Serialize(List<Figure> filterlistOfFigures)
         {
             string filename = "figure.dat";
             string jsonString = JsonConvert.SerializeObject(filterlistOfFigures,
@@ -21,7 +21,7 @@ namespace laba1_OOP.Plugins
         }
 
 
-        public override List<Figure> Deserialization(int key)
+        public List<Figure> Deserialize()
         {
             string filename = "figure.dat";
             List<Figure> listOfFigures = new List<Figure>();
@@ -37,8 +37,8 @@ namespace laba1_OOP.Plugins
             }
             catch
             {
-               MessageBox.Show("Ошибка файла!");
-           }
+                MessageBox.Show("Ошибка файла!");
+            }
             inputStream.Close();
             return listOfFigures;
         }

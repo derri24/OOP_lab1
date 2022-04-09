@@ -78,7 +78,6 @@
             this.LoadPluginsBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.SettingsBtn = new System.Windows.Forms.Button();
             this.OpenBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -666,20 +665,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // SettingsBtn
-            // 
-            this.SettingsBtn.BackColor = System.Drawing.Color.White;
-            this.SettingsBtn.Enabled = false;
-            this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsBtn.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.SettingsBtn.Location = new System.Drawing.Point(923, 661);
-            this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(233, 29);
-            this.SettingsBtn.TabIndex = 23;
-            this.SettingsBtn.Text = "Настройки";
-            this.SettingsBtn.UseVisualStyleBackColor = false;
-            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
-            // 
             // OpenBtn
             // 
             this.OpenBtn.BackColor = System.Drawing.Color.White;
@@ -700,7 +685,6 @@
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1165, 708);
             this.Controls.Add(this.OpenBtn);
-            this.Controls.Add(this.SettingsBtn);
             this.Controls.Add(this.LoadPluginsBtn);
             this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.DeleteBtn);
@@ -746,8 +730,6 @@
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button OpenBtn;
-
-        private System.Windows.Forms.Button SettingsBtn;
 
         private System.Windows.Forms.Label label5;
 
