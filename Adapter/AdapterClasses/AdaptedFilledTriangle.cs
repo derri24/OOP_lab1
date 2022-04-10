@@ -3,11 +3,11 @@ using LibraryFigure;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdapterFilledTriangle:Figure
+    public class AdaptedFilledTriangle:Figure
     {
         private FilledTriangle.FilledTriangle filledTriangle;
         
-        public AdapterFilledTriangle()
+        public AdaptedFilledTriangle()
         {
             filledTriangle = new FilledTriangle.FilledTriangle();
         }
@@ -20,6 +20,9 @@ namespace laba1_OOP.Adapter.AdapterClasses
         public override void Draw(Bitmap bmp)
         {
             filledTriangle.Draw(bmp);
+            filledTriangle.R = colorPen.R;
+            filledTriangle.G = colorPen.G;
+            filledTriangle.B = colorPen.B;
         }
 
         public override void Resize(int x1, int y1, int x2, int y2)

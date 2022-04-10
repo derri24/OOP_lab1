@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>laba2_OOP</RootNamespace>
     <AssemblyName>laba2_OOP</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -64,8 +64,8 @@
     <Reference Include="FilledCircle">
       <HintPath>..\plugins for adapter\FilledCircle.dll</HintPath>
     </Reference>
-    <Reference Include="FilledHexagonLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\plugins for adapter\FilledHexagonLib.dll</HintPath>
+    <Reference Include="FilledHexagon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\plugins for adapter\FilledHexagon.dll</HintPath>
     </Reference>
     <Reference Include="FilledRectangle">
       <HintPath>..\plugins for adapter\FilledRectangle.dll</HintPath>
@@ -131,10 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\AdapterClasses\AdaptedFilledCircle.cs" />
-    <Compile Include="Adapter\AdapterClasses\AdapterFilledHexagon.cs" />
-    <Compile Include="Adapter\AdapterClasses\AdapterFilledRectangle.cs" />
-    <Compile Include="Adapter\AdapterClasses\AdapterFilledRhombus.cs" />
-    <Compile Include="Adapter\AdapterClasses\AdapterFilledTriangle.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdaptedFilledHexagon.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdaptedFilledRectangle.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdaptedFilledRhombus.cs" />
+    <Compile Include="Adapter\AdapterClasses\AdaptedFilledTriangle.cs" />
     <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Entities\Ellips.cs" />
     <Compile Include="Entities\Line.cs" />

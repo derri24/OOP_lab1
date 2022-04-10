@@ -18,6 +18,7 @@ namespace laba1_OOP
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(colorPen,sizePen);
+            
             graphics.DrawEllipse(pen, x, y, width, heigth);
             graphics.Dispose();
         }

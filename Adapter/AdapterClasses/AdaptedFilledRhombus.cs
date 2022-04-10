@@ -4,11 +4,11 @@ using LibraryFigure;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdapterFilledRhombus:Figure
+    public class AdaptedFilledRhombus:Figure
     {
         private FilledRhombus.FilledRhombus filledRhombus;
         
-        public AdapterFilledRhombus()
+        public AdaptedFilledRhombus()
         {
             filledRhombus = new FilledRhombus.FilledRhombus();
         }
@@ -21,6 +21,9 @@ namespace laba1_OOP.Adapter.AdapterClasses
         public override void Draw(Bitmap bmp)
         {
             filledRhombus.Draw(bmp);
+            filledRhombus.R = colorPen.R;
+            filledRhombus.G = colorPen.G;
+            filledRhombus.B = colorPen.B;
         }
 
         public override void Resize(int x1, int y1, int x2, int y2)

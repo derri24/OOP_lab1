@@ -4,12 +4,12 @@ using LibraryFigure;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdapterFilledRectangle:Figure
+    public class AdaptedFilledRectangle:Figure
     {
         
         private FilledRectangle.FilledRectangle filledRectangle;
         
-        public AdapterFilledRectangle()
+        public AdaptedFilledRectangle()
         {
             filledRectangle = new FilledRectangle.FilledRectangle();
         }
@@ -22,6 +22,9 @@ namespace laba1_OOP.Adapter.AdapterClasses
         public override void Draw(Bitmap bmp)
         {
             filledRectangle.Draw(bmp);
+            filledRectangle.R = colorPen.R;
+            filledRectangle.G = colorPen.G;
+            filledRectangle.B = colorPen.B;
         }
 
         public override void Resize(int x1, int y1, int x2, int y2)

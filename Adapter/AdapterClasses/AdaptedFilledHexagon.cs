@@ -1,17 +1,17 @@
 ﻿using System.Drawing;
 using LibraryFigure;
-using FilledHexagonLib;
+
 
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdapterFilledHexagon: Figure
+    public class AdaptedFilledHexagon: Figure
     {
-        private FilledHexagon filledEllipse;
+        private FilledHexagon.FilledHexagon filledEllipse;
         
-        public AdapterFilledHexagon()
+        public AdaptedFilledHexagon()
         {
-            filledEllipse = new FilledHexagon();
+            filledEllipse = new FilledHexagon.FilledHexagon();
         }
 
         public override string ToString()
@@ -22,6 +22,9 @@ namespace laba1_OOP.Adapter.AdapterClasses
         public override void Draw(Bitmap bmp)
         {
             filledEllipse.Draw(bmp);
+            filledEllipse.R = colorPen.R;
+            filledEllipse.G = colorPen.G;
+            filledEllipse.B = colorPen.B;
         }
 
         public override void Resize(int x1, int y1, int x2, int y2)

@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using laba1_OOP.Adapter.AdapterClasses;
 using laba1_OOP.Plugins;
 using LibraryFigure;
 using Newtonsoft.Json;
@@ -38,6 +39,7 @@ namespace laba1_OOP
                         listOfFigures[i] is Ellips ||
                         listOfFigures[i] is Square ||
                         listOfFigures[i] is Line)
+                        
                         filteredListOfFigerus.Add(listOfFigures[i]);
             return filteredListOfFigerus;
         }
@@ -270,15 +272,12 @@ namespace laba1_OOP
                 changeFigure();
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void button13_Click_1(object sender, EventArgs e)
         {
             tempColor = Color.Black;
             if (changeFlag == true)
                 changeFigure();
         }
-
-        
-      
 
         private void updateBitmap()
         {
@@ -416,56 +415,58 @@ namespace laba1_OOP
                     }
                 }
             }
-
             return types;
         }
-
+        
         private void LoadPluginsBtn_Click(object sender, EventArgs e)
         {
             List<Type> types = GetFigureClassesFromPlugins();
             for (int i = 0; i < types.Count; i++)
                 AddTypeFigure(types[i]);
         }
-        //
-        
-       
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            listOfFigures = Singleton.Serializer.Deserialize();
+            updateBitmap();
+            updateListBox();
             tempColor = Color.Red;
         }
+
+        private void FilledCircleBtn_Click(object sender, EventArgs e)
+        {
+            AdapterFilledCircle adapterFilledCircle = new AdapterFilledCircle();
+            tempFigure = adapterFilledCircle;
+            label2.Text = "закрашенный круг";
+        }
+
+        private void FilledRectangleBtn_Click(object sender, EventArgs e)
+        {
+            AdaptedFilledRectangle adapterFilledRectangle = new AdaptedFilledRectangle();
+            tempFigure = adapterFilledRectangle;
+            label2.Text = "закрашенный прямоугольник";
+        }
+
+        private void FilledTriangleBtn_Click(object sender, EventArgs e)
+        {
+            AdaptedFilledTriangle adapterFilledTriangle = new AdaptedFilledTriangle();
+            tempFigure = adapterFilledTriangle;
+            label2.Text = "закрашенный треугольник";
+        }
+
+        private void FilledPhombusBtn_Click(object sender, EventArgs e)
+        {
+            AdaptedFilledRhombus adapterFilledRhombus = new AdaptedFilledRhombus();
+            tempFigure = adapterFilledRhombus;
+            label2.Text = "закрашенный ромб";
+        }
+
+        private void FilledHexagonBtn_Click(object sender, EventArgs e)
+        {
+            AdaptedFilledHexagon adapterFilledHexagon = new AdaptedFilledHexagon();
+            tempFigure = adapterFilledHexagon;
+            label2.Text = "закрашенный шестиугольник";
+        }
         
-
-        public void OpenButtons()
-        {
-            LineBtn.Enabled = true;
-            Rhombus.Enabled = true;
-            TriangleBtn.Enabled = true;
-            RectangleBtn.Enabled = true;
-            SquareBtn.Enabled = true;
-            EllipsBtn.Enabled = true;
-            LoadPluginsBtn.Enabled = true;
-            ClearBtn.Enabled = true;
-            DeleteBtn.Enabled = true;
-            ChangeBtn.Enabled = true;
-        }
-
-        private void OpenBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                listOfFigures = Singleton.Serializer.Deserialize();
-                updateBitmap();
-                updateListBox();
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка! Возможно, параметры шифрования были изменены.");
-            }
-
-            OpenButtons();
-        }
-
-       
     }
 }
