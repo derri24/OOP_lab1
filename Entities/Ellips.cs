@@ -1,29 +1,44 @@
 ﻿using System;
 using System.Drawing;
-using LibraryFigure;
+
+using BaseFigureLib;
+
 
 namespace laba1_OOP
 {
-    [Serializable]
-    public class Ellips : Figure
+    public class Ellips : IFigure
     {
         public int x, y, width, heigth;
+        
+        public Color colorPen;
+        public int sizePen;
 
+        public Ellips()
+        {
+            colorPen = new Color();
+        }
         public override string ToString()
         {
             return "Эллипc";
         }
 
-        public override void Draw(Bitmap bmp)
+        public void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
-            Pen pen = new Pen(colorPen,sizePen);
-            
+
+            Pen pen = new Pen(colorPen, sizePen);
+
             graphics.DrawEllipse(pen, x, y, width, heigth);
             graphics.Dispose();
         }
-        
-        public override void Resize(int x1, int y1, int x2, int y2)
+
+        public void SetProperties(Color color,int size)
+        {
+            colorPen = color;
+            sizePen = size;
+        }
+
+        public void Resize(int x1, int y1, int x2, int y2)
         {
             if (x2 > x1)
             {

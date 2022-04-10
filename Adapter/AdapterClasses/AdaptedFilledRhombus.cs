@@ -1,10 +1,9 @@
 ﻿using System.Drawing;
-using LibraryFigure;
-
+using BaseFigureLib;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdaptedFilledRhombus:Figure
+    public class AdaptedFilledRhombus:IFigure
     {
         private FilledRhombus.FilledRhombus filledRhombus;
         
@@ -18,15 +17,19 @@ namespace laba1_OOP.Adapter.AdapterClasses
             return filledRhombus.ToString();
         }
 
-        public override void Draw(Bitmap bmp)
+        public  void Draw(Bitmap bmp)
         {
             filledRhombus.Draw(bmp);
-            filledRhombus.R = colorPen.R;
-            filledRhombus.G = colorPen.G;
-            filledRhombus.B = colorPen.B;
+        }
+        
+        public void SetProperties(Color color,int size)
+        {
+            filledRhombus.R = color.R;
+            filledRhombus.G = color.G;
+            filledRhombus.B = color.B;
         }
 
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             filledRhombus.Resize(x1, y1, x2, y2);
         }

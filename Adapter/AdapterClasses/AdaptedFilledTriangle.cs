@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
-using LibraryFigure;
+using BaseFigureLib;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdaptedFilledTriangle:Figure
+    public class AdaptedFilledTriangle:IFigure
     {
         private FilledTriangle.FilledTriangle filledTriangle;
         
@@ -17,15 +17,17 @@ namespace laba1_OOP.Adapter.AdapterClasses
             return filledTriangle.ToString();
         }
 
-        public override void Draw(Bitmap bmp)
+        public void Draw(Bitmap bmp)
         {
             filledTriangle.Draw(bmp);
-            filledTriangle.R = colorPen.R;
-            filledTriangle.G = colorPen.G;
-            filledTriangle.B = colorPen.B;
         }
-
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public void SetProperties(Color color,int size)
+        {
+            filledTriangle.R = color.R;
+            filledTriangle.G = color.G;
+            filledTriangle.B = color.B;
+        }
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             filledTriangle.Resize(x1, y1, x2, y2);
         }

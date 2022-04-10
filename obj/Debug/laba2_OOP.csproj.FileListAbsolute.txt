@@ -47,3 +47,5 @@ C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\FilledRhombus.dll
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\FilledTriangle.dll
 C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\FilledHexagon.dll
+C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\BaseFigureLib.dll
+C:\Users\derri\OneDrive\Рабочий стол\4 сем\ООП\laba2_OOP\laba1_OOP\bin\Debug\BaseFigureLib.pdb

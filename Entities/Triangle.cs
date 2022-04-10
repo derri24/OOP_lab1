@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Drawing;
-using LibraryFigure;
+using BaseFigureLib;
 
 namespace laba1_OOP
 {
-    [Serializable]
-    class Triangle : Figure
+    class Triangle : IFigure
     {
         public int x1, x2, x3, y1, y2, y3;
 
+        public Color colorPen;
+        public int sizePen;
+        
+        public Triangle()
+        {
+            colorPen = new Color();
+        }
         public override string ToString()
         {
             return "Треугольник";
         }
-        public override void Draw(Bitmap bmp)
+        public  void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(colorPen, sizePen);
@@ -26,8 +32,12 @@ namespace laba1_OOP
             graphics.DrawPolygon(pen, points);
             graphics.Dispose();
         }
-
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public void SetProperties(Color color,int size)
+        {
+            colorPen = color;
+            sizePen = size;
+        }
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             int temp;
             if ((x1 > x2))

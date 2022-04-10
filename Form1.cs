@@ -12,25 +12,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using laba1_OOP.Adapter.AdapterClasses;
 using laba1_OOP.Plugins;
-using LibraryFigure;
+
+using BaseFigureLib;
 using Newtonsoft.Json;
 
 namespace laba1_OOP
 {
     public partial class Form1 : Form
     {
-        private List<Figure> listOfFigures;
+        private List<IFigure> listOfFigures;
+        
+        private DisplayFigure displayFigure;
 
         public Form1()
         {
             InitializeComponent();
             Image image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = image;
+            displayFigure = new DisplayFigure();
         }
 
-        private List<Figure> FilterListOfFigures()
+        private List<IFigure> FilterListOfFigures()
         {
-            List<Figure> filteredListOfFigerus = new List<Figure>();
+            List<IFigure> filteredListOfFigerus = new List<IFigure>();
             if (listOfFigures != null)
                 for (int i = 0; i < listOfFigures.Count; i++)
                     if (listOfFigures[i] is Triangle ||
@@ -77,7 +81,7 @@ namespace laba1_OOP
         private void EllipsBtn_Click(object sender, EventArgs e)
         {
             Ellips ellips = new Ellips();
-            tempFigure = ellips;
+                tempFigure = ellips;
             label2.Text = "эллипс";
         }
 
@@ -107,7 +111,8 @@ namespace laba1_OOP
         private int endX, endY;
         private bool flag = false;
         private Bitmap tempBitmap;
-        private Figure tempFigure;
+        
+        private IFigure tempFigure;
 
         private Color tempColor;
         private int tempSize;
@@ -118,7 +123,7 @@ namespace laba1_OOP
             startY = e.Y;
             flag = true;
             if (tempFigure != null)
-                tempFigure = (Figure) Activator.CreateInstance(tempFigure.GetType());
+                tempFigure = (IFigure) Activator.CreateInstance(tempFigure.GetType());
             tempBitmap = (Bitmap) pictureBox1.Image.Clone();
         }
 
@@ -162,16 +167,14 @@ namespace laba1_OOP
             pictureBox1.Image = new Bitmap(tempBitmap);
             if (tempFigure != null)
             {
-                tempFigure.colorPen = tempColor;
-                tempFigure.sizePen = tempSize;
-                tempFigure.Resize(startX, startY, endX, endY);
+                displayFigure.SetProperties( tempFigure,tempColor,tempSize);
+                displayFigure.Resize(tempFigure, startX, startY, endX, endY);
                 Bitmap btm = (Bitmap) pictureBox1.Image;
-                tempFigure.Draw(btm);
+                displayFigure.Draw(tempFigure, btm);
                 pictureBox1.Image = btm;
             }
         }
-
-
+        
         private bool changeFlag = false;
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -287,7 +290,7 @@ namespace laba1_OOP
             if (listOfFigures != null)
                 for (int i = 0; i < listOfFigures.Count; i++)
                 {
-                    listOfFigures[i].Draw(btm);
+                    displayFigure.Draw( listOfFigures[i], btm);
                 }
             
             Singleton.Serializer.Serialize(FilterListOfFigures());
@@ -317,8 +320,7 @@ namespace laba1_OOP
         {
             if ((listBox1.Items.Count > 0) && (listBox1.SelectedIndex > -1))
             {
-                listOfFigures[listBox1.SelectedIndex].sizePen = tempSize;
-                listOfFigures[listBox1.SelectedIndex].colorPen = tempColor;
+                displayFigure.SetProperties( listOfFigures[listBox1.SelectedIndex],tempColor,tempSize);
                 Bitmap btm = new Bitmap(pictureBox1.Image.Width, pictureBox1.Image.Height);
                 pictureBox1.Image.Dispose();
                 pictureBox1.Image = btm;
@@ -354,7 +356,7 @@ namespace laba1_OOP
             for (int i = 0; i < listOfClassesFromPlugin.Count; i++)
                 if (listOfClassesFromPlugin[i].Name == ((Button) sender).Name)
                 {
-                    tempFigure = (Figure) Activator.CreateInstance(listOfClassesFromPlugin[i]);
+                    tempFigure = (IFigure) Activator.CreateInstance(listOfClassesFromPlugin[i]);
                     label2.Text = tempFigure.ToString();
                 }
         }
@@ -382,7 +384,7 @@ namespace laba1_OOP
                     contains = true;
             if (contains == false)
             {
-                Figure figure = (Figure) Activator.CreateInstance(type);
+                IFigure figure = (IFigure) Activator.CreateInstance(type);
                 Button newButton = new Button();
 
                 newButton.Name = type.Name;
@@ -410,7 +412,7 @@ namespace laba1_OOP
                     var allDllTypes = myDll.GetTypes();
                     foreach (var type in allDllTypes)
                     {
-                        if (type.BaseType.FullName == typeof(Figure).FullName)
+                        if (type.BaseType.FullName == typeof(IFigure).FullName)
                             types.Add(type);
                     }
                 }
@@ -425,8 +427,10 @@ namespace laba1_OOP
                 AddTypeFigure(types[i]);
         }
 
+      
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             listOfFigures = Singleton.Serializer.Deserialize();
             updateBitmap();
             updateListBox();

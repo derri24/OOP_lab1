@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Drawing;
-using LibraryFigure;
+using BaseFigureLib;
 
 namespace laba1_OOP
 {
-    [Serializable]
-    public class Square : Figure
+    public class Square : IFigure
     {
         public int x1, y1, x2, y2, x3, y3, x4, y4;
-
+        public Color colorPen;
+        public int sizePen;
+        
+        public Square()
+        {
+            colorPen = new Color();
+        }
         public override string ToString()
         {
             return "Квадрат";
         }
-        public override void Draw(Bitmap bmp)
+        public  void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(colorPen, sizePen);
@@ -27,8 +32,12 @@ namespace laba1_OOP
             graphics.DrawPolygon(pen, points);
             graphics.Dispose();
         }
-
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public void SetProperties(Color color,int size)
+        {
+            colorPen = color;
+            sizePen = size;
+        }
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             int w=(Math.Abs(x2-x1)+Math.Abs(y2-y1))/2;
             if ((x2 > x1) && (y2 > y1))

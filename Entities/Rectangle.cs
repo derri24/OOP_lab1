@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Drawing;
-using LibraryFigure;
+using BaseFigureLib;
 
 namespace laba1_OOP
 {
-    [Serializable]
-    public class Rectangle : Figure
+
+    public class Rectangle : IFigure
     {
         public int x, y, width, heigth;
         
+        public Color colorPen;
+        public int sizePen;
+        
+        public Rectangle()
+        {
+            colorPen = new Color();
+        }
         public override string ToString()
         {
             return "Прямоугольник";
         }
-        public override void Draw(Bitmap bmp)
+        public  void Draw(Bitmap bmp)
         {
             Graphics graphics = Graphics.FromImage(bmp);
             Pen pen = new Pen(colorPen, sizePen);
@@ -21,7 +28,12 @@ namespace laba1_OOP
             graphics.Dispose();
         }
 
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public void SetProperties(Color color,int size)
+        {
+            colorPen = color;
+            sizePen = size;
+        }
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             if (x2 > x1)
             {
@@ -33,7 +45,6 @@ namespace laba1_OOP
                 this.x = x2;
                 this.width = x1 - x2;
             }
-
             if (y2 > y1)
             {
                 this.y = y1;

@@ -61,6 +61,9 @@
     <Reference Include="BaseFigure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\plugins for adapter\BaseFigure.dll</HintPath>
     </Reference>
+    <Reference Include="BaseFigureLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\БГУИР\2 курс\Учусь писать на С#\BaseFigureLib\BaseFigureLib\bin\Debug\BaseFigureLib.dll</HintPath>
+    </Reference>
     <Reference Include="FilledCircle">
       <HintPath>..\plugins for adapter\FilledCircle.dll</HintPath>
     </Reference>
@@ -135,6 +138,7 @@
     <Compile Include="Adapter\AdapterClasses\AdaptedFilledRectangle.cs" />
     <Compile Include="Adapter\AdapterClasses\AdaptedFilledRhombus.cs" />
     <Compile Include="Adapter\AdapterClasses\AdaptedFilledTriangle.cs" />
+    <Compile Include="DisplayFigure.cs" />
     <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Entities\Ellips.cs" />
     <Compile Include="Entities\Line.cs" />

@@ -1,13 +1,14 @@
 ﻿using System.Drawing;
 
-using LibraryFigure;
+using BaseFigureLib;
 
 namespace laba1_OOP.Adapter.AdapterClasses
 {
-    public class AdapterFilledCircle : Figure
+    public class AdapterFilledCircle : IFigure
     {
         private FilledCircle.FilledEllipse filledCircle;
-      
+       
+
         public AdapterFilledCircle()
         {
             filledCircle = new FilledCircle.FilledEllipse();
@@ -16,14 +17,17 @@ namespace laba1_OOP.Adapter.AdapterClasses
         {
             return filledCircle.ToString();
         }
-        public override void Draw(Bitmap bmp)
+        public  void Draw(Bitmap bmp)
         {
-            filledCircle.R = colorPen.R;
-            filledCircle.G = colorPen.G;
-            filledCircle.B = colorPen.B;
             filledCircle.Draw(bmp);
         }
-        public override void Resize(int x1, int y1, int x2, int y2)
+        public void SetProperties(Color color,int size)
+        {
+            filledCircle.R = color.R;
+            filledCircle.G = color.G;
+            filledCircle.B = color.B;
+        }
+        public  void Resize(int x1, int y1, int x2, int y2)
         {
             filledCircle.Resize(x1, y1, x2, y2);
         }

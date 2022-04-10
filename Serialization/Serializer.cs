@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using LibraryFigure;
+using BaseFigureLib;
 using Newtonsoft.Json;
 
 namespace laba1_OOP.Plugins
 {
     public class Serializer
     {
-        public void Serialize(List<Figure> filterlistOfFigures)
+        public void Serialize(List<IFigure> filterlistOfFigures)
         {
             string filename = "figure.dat";
             string jsonString = JsonConvert.SerializeObject(filterlistOfFigures,
@@ -21,16 +21,16 @@ namespace laba1_OOP.Plugins
         }
 
 
-        public List<Figure> Deserialize()
+        public List<IFigure> Deserialize()
         {
             string filename = "figure.dat";
-            List<Figure> listOfFigures = new List<Figure>();
+            List<IFigure> listOfFigures = new List<IFigure>();
             FileStream inputStream = new FileStream(filename, FileMode.OpenOrCreate);
             try
             {
                 StreamReader streamReader = new StreamReader(inputStream);
                 string jsonString = streamReader.ReadToEnd();
-                List<Figure> loaded = JsonConvert.DeserializeObject<List<Figure>>(jsonString,
+                List<IFigure> loaded = JsonConvert.DeserializeObject<List<IFigure>>(jsonString,
                     new JsonSerializerSettings {TypeNameHandling = TypeNameHandling.Auto});
                 if (loaded != null)
                     listOfFigures = loaded;
